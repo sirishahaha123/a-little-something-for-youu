@@ -1,0 +1,752 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(
+        135deg,
+        #8e7dff,
+        #b9a7ff,
+        #9fdcff,
+        #d8c8ff
+    );
+    color: #ff69b4;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    min-height: 100vh;
+    position: relative;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    position: relative;
+    z-index: 2;
+
+    animation: fadeIn 0.8s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass-card {
+    width: min(92%, 650px);
+
+    padding: 50px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(77, 46, 130, 0.18),
+        inset 0 0 30px rgba(255, 255, 255, 0.15);
+
+    animation: cardAppear 1s ease;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.opening-card {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.sparkle {
+    font-size: 40px;
+    margin-bottom: 10px;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(55px, 12vw, 90px);
+    line-height: 1;
+
+    color: #ff5fa2;
+
+    text-shadow:
+        0 5px 20px rgba(255, 80, 160, 0.2);
+}
+
+.subtitle {
+    margin-top: 20px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: clamp(20px, 4vw, 28px);
+
+    color: #fff;
+
+    text-shadow: 0 2px 8px rgba(70, 40, 100, 0.2);
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2 {
+    font-family: "Baloo 2", cursive;
+
+    font-size: clamp(42px, 9vw, 65px);
+
+    color: #ff69b4;
+
+    margin-bottom: 5px;
+}
+
+.little-text {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-btn,
+.choice-btn,
+.last-btn {
+    border: none;
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.main-btn:hover,
+.choice-btn:hover,
+.last-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    filter: brightness(1.05);
+}
+
+.main-btn:active,
+.choice-btn:active,
+.last-btn:active {
+    transform: scale(0.94);
+}
+
+
+/* Purple Button */
+
+.purple-btn {
+    margin-top: 35px;
+
+    padding: 15px 38px;
+
+    border-radius: 50px;
+
+    background: #b98cff;
+
+    color: #fff;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 10px 25px rgba(100, 60, 180, 0.25);
+}
+
+
+/* Yellow Buttons */
+
+.choice-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.yellow-btn {
+    padding: 13px 20px;
+
+    border-radius: 30px;
+
+    background: #ffe66d;
+
+    color: #ff69b4;
+
+    box-shadow:
+        0 8px 18px rgba(150, 120, 30, 0.15);
+}
+
+
+/* Blue Button */
+
+.blue-btn {
+    margin-top: 10px;
+
+    padding: 16px 25px;
+
+    border-radius: 35px;
+
+    background: #72cfff;
+
+    color: #fff;
+
+    box-shadow:
+        0 10px 25px rgba(30, 130, 190, 0.25);
+}
+
+
+/* =========================
+   REACTION
+========================= */
+
+.reaction {
+    min-height: 35px;
+
+    margin: 10px 0;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 20px;
+
+    color: #ff69b4;
+
+    animation: reactionPop 0.5s ease;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-card {
+    min-height: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.typing-text {
+    max-width: 600px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: clamp(23px, 5vw, 32px);
+
+    line-height: 1.5;
+
+    color: #000;
+
+    min-height: 120px;
+}
+
+
+/* =========================
+   TOM AND JERRY
+========================= */
+
+.tom-jerry {
+    margin-top: 25px;
+
+    animation: imageAppear 1s ease;
+}
+
+.tom-jerry img {
+    width: min(90vw, 360px);
+
+    max-height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   LAST THING BUTTON
+========================= */
+
+.last-btn {
+    margin-top: 35px;
+
+    padding: 12px 25px;
+
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    color: #ff69b4;
+
+    box-shadow:
+        0 8px 25px rgba(100, 70, 150, 0.18);
+
+    animation:
+        gentleGlow 2s infinite ease-in-out,
+        fadeIn 1s ease;
+}
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+#finalSection {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(86, 67, 170, 0.45),
+            rgba(80, 150, 210, 0.35)
+        );
+}
+
+.final-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(45, 30, 80, 0.25);
+
+    backdrop-filter: blur(3px);
+}
+
+.final-card {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(92%, 700px);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    box-shadow:
+        0 25px 70px rgba(30, 20, 70, 0.3),
+        0 0 40px rgba(255, 170, 230, 0.3);
+
+    animation: finalReveal 1.2s ease;
+}
+
+.final-sparkles {
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+    animation: sparkle 2.5s infinite ease-in-out;
+}
+
+.final-message {
+    font-family: "Baloo 2", cursive;
+
+    font-size: clamp(20px, 4vw, 26px);
+
+    line-height: 1.55;
+
+    color: #222;
+}
+
+.final-divider {
+    width: 80px;
+
+    height: 3px;
+
+    margin: 25px auto;
+
+    border-radius: 5px;
+
+    background: #ff8bc2;
+}
+
+.thats-all {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 23px;
+
+    color: #72aee8;
+}
+
+.footer-message {
+    margin-top: 35px;
+
+    font-size: 14px;
+
+    color: #ff69b4;
+
+    animation: footerFloat 3s infinite ease-in-out;
+}
+
+
+/* =========================
+   FLOATING ELEMENTS
+========================= */
+
+.floating-elements {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.floating-elements span {
+    position: absolute;
+
+    font-size: 20px;
+
+    opacity: 0.5;
+
+    animation: floatUp linear infinite;
+}
+
+.floating-elements span:nth-child(1) {
+    left: 10%;
+    animation-duration: 9s;
+    animation-delay: 0s;
+}
+
+.floating-elements span:nth-child(2) {
+    left: 25%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.floating-elements span:nth-child(3) {
+    left: 45%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.floating-elements span:nth-child(4) {
+    left: 65%;
+    animation-duration: 13s;
+    animation-delay: 3s;
+}
+
+.floating-elements span:nth-child(5) {
+    left: 80%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.floating-elements span:nth-child(6) {
+    left: 90%;
+    animation-duration: 14s;
+    animation-delay: 4s;
+}
+
+.floating-elements span:nth-child(7) {
+    left: 55%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+
+/* =========================
+   FINAL FLOATING
+========================= */
+
+.final-floating {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.final-floating span {
+    position: absolute;
+
+    font-size: 22px;
+
+    opacity: 0;
+
+    animation: finalFloat 5s infinite ease-in-out;
+}
+
+.final-floating span:nth-child(1) {
+    left: 10%;
+    top: 25%;
+    animation-delay: 0s;
+}
+
+.final-floating span:nth-child(2) {
+    left: 85%;
+    top: 20%;
+    animation-delay: 1s;
+}
+
+.final-floating span:nth-child(3) {
+    left: 15%;
+    top: 70%;
+    animation-delay: 2s;
+}
+
+.final-floating span:nth-child(4) {
+    left: 80%;
+    top: 75%;
+    animation-delay: 3s;
+}
+
+.final-floating span:nth-child(5) {
+    left: 50%;
+    top: 10%;
+    animation-delay: 1.5s;
+}
+
+.final-floating span:nth-child(6) {
+    left: 60%;
+    top: 85%;
+    animation-delay: 2.5s;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes sparkle {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+@keyframes reactionPop {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes imageAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes gentleGlow {
+    0%,
+    100% {
+        box-shadow: 0 8px 25px rgba(255, 130, 190, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 8px 35px rgba(255, 130, 190, 0.6);
+    }
+}
+
+@keyframes finalReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(110vh) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-120px) rotate(360deg);
+    }
+}
+
+@keyframes finalFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.7);
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    70% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.2);
+    }
+}
+
+@keyframes footerFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 15px;
+    }
+
+    .glass-card {
+        padding: 40px 20px;
+        border-radius: 28px;
+    }
+
+    .opening-card {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    h1 {
+        font-size: 58px;
+    }
+
+    h2 {
+        font-size: 45px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .choice-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .yellow-btn {
+        width: 85%;
+    }
+
+    .final-card {
+        padding: 35px 22px;
+        border-radius: 28px;
+    }
+
+    .final-message {
+        font-size: 19px;
+    }
+}
